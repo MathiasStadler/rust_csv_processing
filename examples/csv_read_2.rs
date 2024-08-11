@@ -30,3 +30,5 @@ fn main() -> Result<(), csv::Error> {
 
     Ok(())
 }
+
+// cargo run --example csv_read_2
