@@ -1,10 +1,7 @@
 # project init
 
-
-
 - https://stackoverflow.com/questions/5130847/running-multiple-commands-in-one-line-in-shell
 - && executes the right-hand command of && only if the previous one succeeded
-
 
 - change before the rust_project name
 
@@ -30,20 +27,14 @@ cd \
 # https://github.com/rust-lang/rustup/issues/2729
 # rustup toolchain uninstall stable
 # rustup toolchain install stable
-
 rustup show
+touch FROM_HERE.md 
+cargo build
 ```
 
-<!-- chmod -R 0777 /opt/rust
-rm /opt/rust/bin/rust-analyzer 
-rm /opt/rust/bin/rustfmt 
-rm /opt/rust/bin/cargo-fmt
-rustup show
+## package for this/these project(s)
 
-rustup update -->
-
-
-
-touch FROM_HERE.md 
-
-cargo build
+```bash
+# inside project folder
+cargo add serde_json
+```
