@@ -37,4 +37,5 @@ cargo build
 ```bash
 # inside project folder
 cargo add serde_json
+cargo add ta
 ```
