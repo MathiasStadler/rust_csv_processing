@@ -12,7 +12,7 @@ use serde::Deserialize;
 #[derive(Deserialize)]
 struct Record {
     #[allow(non_snake_case)]
-    date: String,
+    Date: String,
     #[allow(non_snake_case)]
     Open: f32,
     #[allow(non_snake_case)]
@@ -34,12 +34,12 @@ fn main() {
 
 
     // https://stackoverflow.com/questions/75287355/reading-csv-file-when-header-is-present-with-lower-or-upper-case
-    
+
     for record in reader.deserialize() {
         let record: Record = record.unwrap();
         println!(
             " {:?}, {:?}, {:?}, {:?},{:?}, {:?}",
-            record.date,
+            record.Date,
             record.Open,
             record.High,
             record.Low,
