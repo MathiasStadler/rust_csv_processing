@@ -4,24 +4,25 @@
 // /w stock data ./data/trx_us_d.csv
 
 // use std::error::Error;
-use csv::Reader;
+// use csv::Reader;
 use serde::Deserialize;
 
 // Date,Open,High,Low,Close,Volume
+
 #[derive(Deserialize)]
 struct Record {
     #[allow(non_snake_case)]
-    Date: String,
+    date: String,
     #[allow(non_snake_case)]
-    Open: f16,
+    Open: f32,
     #[allow(non_snake_case)]
-    High: f16,
+    High: f32,
     #[allow(non_snake_case)]
-    Low: f16,
+    Low: f32,
     #[allow(non_snake_case)]
-    Close: f16,
+    Close: f32,
     #[allow(non_snake_case)]
-    Volume: f16,
+    Volume: f32,
 }
 
 fn main() {
@@ -31,11 +32,14 @@ fn main() {
     //     let record = result.unwrap();
     //     println!("{:?}", record);
 
+
+    // https://stackoverflow.com/questions/75287355/reading-csv-file-when-header-is-present-with-lower-or-upper-case
+    
     for record in reader.deserialize() {
         let record: Record = record.unwrap();
         println!(
-            " {}, {}, {}, {},{}, {}",
-            record.Date,
+            " {:?}, {:?}, {:?}, {:?},{:?}, {:?}",
+            record.date,
             record.Open,
             record.High,
             record.Low,
