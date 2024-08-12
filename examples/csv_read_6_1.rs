@@ -7,12 +7,17 @@
 // use csv::Reader;
 use serde::Deserialize;
 
+
+// https://github.com/BurntSushi/rust-csv/issues/125
+
+
 // Date,Open,High,Low,Close,Volume
 
-#[derive(Deserialize)]
+#[derive(Debug, Deserialize)]
 struct Record {
     #[allow(non_snake_case)]
-    Date: String,
+    #[serde(rename = "Date")]
+    date: String,
     #[allow(non_snake_case)]
     Open: f32,
     #[allow(non_snake_case)]
@@ -39,8 +44,8 @@ fn main() {
         let record: Record = record.unwrap();
         println!(
             " {:?}, {:?}, {:?}, {:?},{:?}, {:?}",
-            record.Date,
-            record.Open,
+            record.date,
+            record.open,
             record.High,
             record.Low,
             record.Close,
