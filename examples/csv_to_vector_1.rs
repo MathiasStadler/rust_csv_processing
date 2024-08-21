@@ -40,6 +40,18 @@ use ta::Next;
 
 fn main() {
 
+    // vec of tuple
+
+    let pair:(i32,String,bool) = (1,String::from("Hallo"), true);
+    println!("Pair is {:?}", pair);
+
+    let pair:(&'static str,f64,f64,f64) = ("Hallo", 1.0,2.0,3.0);
+    println!("str is {:?}", pair);
+
+    #[allow(unused_variables)]
+    #[allow(unused_mut)]
+    let mut stock_data_vec: Vec<(&'static str, f32, f32, f32, f32)> = Vec::new();
+
     // https://www.schwab.com/learn/story/understanding-simple-moving-average-crossovers
     // 10 50 200
     let mut sma_7 = Sma::new(7).unwrap();
@@ -73,11 +85,11 @@ fn main() {
 
         // println!("{}: {} = {:2.2}", date, sma_7, sma_7_val
         
-        println!(
-            " {:?}, {:?}, {:?}, {:?},{:?}, {:?}, {:2.2}",
-            date, open, high, low, close, volume, sma_7_val
+        // println!(
+        //     " {:?}, {:?}, {:?}, {:?},{:?}, {:?}, {:2.2}",
+        //     date, open, high, low, close, volume, sma_7_val
 
-        );
+        // );
         wtr.write_record(&[
             date,
             open.to_string(),
@@ -97,5 +109,4 @@ fn main() {
     }
 }
 
-// 
-
+// cargo run --example csv_sma_5
